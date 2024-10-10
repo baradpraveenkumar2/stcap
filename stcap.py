@@ -22,7 +22,7 @@ st.title("Super Fantastic Chatbot")
 st.subheader("Query the HDFC24 PDF document using natural language")
 
 # Load the pre-existing HDFC24 PDF document (replace with correct file path)
-pdf_path = '/mnt/data/hdfc24.pdf'
+pdf_path = 'hdfc24.pdf'
 
 # Function to extract text from image-based PDFs using Tesseract
 def extract_text_from_image_pdf(pdf_path, display_images=False, save_images=False):
