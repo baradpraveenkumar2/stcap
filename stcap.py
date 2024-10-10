@@ -1,9 +1,4 @@
 
-!pip install langchain-community==0.2.15 langchain-chroma==0.1.3 langchain-text-splitters==0.2.2
-!pip install langchain-huggingface==0.0.3 langchain-groq==0.1.9
-!pip install unstructured==0.15.0 unstructured[pdf]==0.15.0 nltk==3.8.1
-!pip install pytesseract pdf2image
-!pip install streamlit
 
 # Streamlit imports
 import streamlit as st
