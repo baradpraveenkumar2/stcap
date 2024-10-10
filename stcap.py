@@ -1,6 +1,3 @@
-
-
-# Streamlit imports
 import streamlit as st
 import pytesseract
 from pdf2image import convert_from_path
@@ -9,7 +6,7 @@ from PIL import Image
 from langchain_community.document_loaders import UnstructuredPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_chroma import Chroma
+from langchain.vectorstores import FAISS  # Using FAISS for in-memory vector store
 from langchain_groq import ChatGroq
 from langchain.chains import RetrievalQA
 
@@ -78,13 +75,8 @@ if os.path.exists(pdf_path):
     splitter = RecursiveCharacterTextSplitter(chunk_size=2000, chunk_overlap=500)
     text_chunks = splitter.split_documents(documents)
 
-    # Vectorstore creation with embedding and retriever setup
-    persist_directory = "doc_db"
-    vectorstore = Chroma.from_documents(
-        documents=text_chunks,
-        embedding=embedding,
-        persist_directory=persist_directory
-    )
+    # Vectorstore creation with FAISS (in-memory, no persistence)
+    vectorstore = FAISS.from_documents(text_chunks, embedding)
     retriever = vectorstore.as_retriever()
 
     # QA Chain setup
