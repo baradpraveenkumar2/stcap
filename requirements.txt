@@ -9,3 +9,5 @@ nltk==3.8.1
 pytesseract
 pdf2image
 streamlit
+pysqlite3
+chromadb
