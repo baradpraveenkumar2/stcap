@@ -9,3 +9,4 @@ nltk==3.8.1
 pytesseract
 pdf2image
 streamlit
+chromadb==0.3.29
